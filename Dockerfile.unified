@@ -1,0 +1,53 @@
+# ==========================================
+# Build Frontend (Next.js)
+# ==========================================
+FROM node:20-bullseye AS frontend-builder
+WORKDIR /app/frontend
+
+# Copy frontend dependency files
+COPY frontend/package*.json ./
+RUN npm ci
+
+# Copy frontend source and build
+COPY frontend/. .
+RUN npm run build
+
+# ==========================================
+# Final Monolithic Image (Python Base)
+# ==========================================
+FROM python:3.12-bullseye
+
+# Install Node.js in the Python image
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# --- Setup Backend ---
+COPY backend/requirements.txt ./backend/requirements.txt
+RUN pip install --no-cache-dir -r backend/requirements.txt
+COPY backend/. ./backend/
+
+# --- Setup Frontend ---
+COPY --from=frontend-builder /app/frontend/.next ./frontend/.next
+COPY --from=frontend-builder /app/frontend/public ./frontend/public
+COPY --from=frontend-builder /app/frontend/node_modules ./frontend/node_modules
+COPY --from=frontend-builder /app/frontend/package.json ./frontend/package.json
+
+# --- Setup Startup Script ---
+COPY start.sh .
+RUN chmod +x start.sh
+
+# Environment variables
+ENV PORT=3000
+ENV FLASK_PORT=5000
+
+# Expose the port Azure Web Apps will route traffic to
+EXPOSE 3000
+
+# Start both services
+CMD ["./start.sh"]

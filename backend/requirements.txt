@@ -1,0 +1,14 @@
+flask
+flask-cors
+python-dotenv
+azure-storage-blob
+azure-search-documents
+openai
+langchain-openai
+langchain-community
+# File Processing Libraries
+python-docx
+python-pptx
+pandas
+openpyxl
+PyMuPDF

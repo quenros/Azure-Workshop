@@ -23,7 +23,7 @@ const { Header, Content, Footer } = Layout;
 const { Text, Title } = Typography;
 
 // --- Configuration ---
-const AZURE_BACKEND_URL = "https://asknarelle-portal.azurewebsites.net";
+const AZURE_BACKEND_URL = "asknarelle-portalworkshop.azurewebsites.net";
 
 // --- Types ---
 interface ChatMessage {

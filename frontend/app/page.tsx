@@ -30,7 +30,7 @@ const { Dragger } = Upload;
 
 // --- Configuration ---
 const LOCAL_BACKEND_URL = "http://localhost:5000";
-const AZURE_VIDEO_BACKEND_URL = "https://asknarelle-portal.azurewebsites.net";
+const AZURE_VIDEO_BACKEND_URL = "asknarelle-portalworkshop.azurewebsites.net";
 const DOMAIN_NAME = "test"; 
 
 // --- Types ---

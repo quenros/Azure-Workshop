@@ -41,7 +41,7 @@ document_processor = DocumentProcessor()
 file_validator = FileValidator()
 
 # Centralized Azure Backend URL
-ASKNARELLE_API_URL = "asknarelle-portalworkshop.azurewebsites.net"
+ASKNARELLE_API_URL = "asknarelle-portalworkshop.azurewebsites.net" 
 
 # ============================================
 # HEALTH CHECK

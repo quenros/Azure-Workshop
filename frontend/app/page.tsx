@@ -29,7 +29,8 @@ const { Title } = Typography;
 const { Dragger } = Upload;
 
 // --- Configuration ---
-const LOCAL_BACKEND_URL = "http://localhost:5000";
+// routed using next.config.js rewrites to avoid CORS issues and hide backend details from frontend code
+const LOCAL_BACKEND_URL = "";
 const AZURE_VIDEO_BACKEND_URL = "asknarelle-portalworkshop.azurewebsites.net";
 const DOMAIN_NAME = "test"; 
 

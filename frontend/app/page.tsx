@@ -31,8 +31,7 @@ const { Dragger } = Upload;
 // --- Configuration ---
 // routed using next.config.js rewrites to avoid CORS issues and hide backend details from frontend code
 const LOCAL_BACKEND_URL = "";
-const AZURE_VIDEO_BACKEND_URL = "asknarelle-portalworkshop.azurewebsites.net";
-const DOMAIN_NAME = "test"; 
+const AZURE_BACKEND_URL = "https://asknarelle-portalworkshop.azurewebsites.net";
 
 // --- Types ---
 interface FileData {

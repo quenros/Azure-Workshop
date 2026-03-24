@@ -126,7 +126,7 @@ export default function ChatPage() {
       ]);
     } catch (error) {
       console.error("Chat error:", error);
-      antMessage.error("Failed to connect to knowledge base");
+      antMessage.error("Failed to retreive from knowledge base");
       setMessages((prev) => prev.slice(0, -1));
     } finally {
       setLoading(false);

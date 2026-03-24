@@ -41,7 +41,7 @@ document_processor = DocumentProcessor()
 file_validator = FileValidator()
 
 # Centralized Azure Backend URL
-ASKNARELLE_API_URL = "asknarelle-portalworkshop.azurewebsites.net" 
+ASKNARELLE_API_URL = "https://asknarelle-portalworkshop.azurewebsites.net" 
 
 # ============================================
 # HEALTH CHECK
@@ -227,7 +227,7 @@ def chat():
         user_message = data['message']
         
         # Local Retrieval
-        search_results = search_service.search(query=user_message, top_k=3, score_threshold=3)
+        search_results = search_service.search(query=user_message, top_k=3, score_threshold=1)
         
         if search_results:
             context = "\n\n".join([

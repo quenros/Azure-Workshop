@@ -23,8 +23,8 @@ const { Header, Content, Footer } = Layout;
 const { Text, Title } = Typography;
 
 // --- Configuration ---
-const LOCAL_BACKEND_URL = "http://localhost:5000";
-const AZURE_BACKEND_URL = "asknarelle-portalworkshop.azurewebsites.net";
+const LOCAL_BACKEND_URL = "";
+const AZURE_BACKEND_URL = "https://asknarelle-portalworkshop.azurewebsites.net";
 
 // --- Types ---
 interface ChatMessage {

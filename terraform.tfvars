@@ -1,1 +1,1 @@
-base_name = "workshopwy"
+base_name = "workshopyourname"
